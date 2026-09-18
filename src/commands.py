@@ -17,3 +17,5 @@ def help_command():
     print("- exit")
 def greet_user(name):
     print(f"ULTRON: Hello, {name.title()} Sir.")
+def echo(argument):
+    print(argument)
