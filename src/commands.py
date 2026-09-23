@@ -9,12 +9,10 @@ def greet():
     print("ULTRON: Hello, Sir.")
 def status():
     print("ULTRON: ALL SYSTEMS ARE OPTIONAL")
-def help_command():
-    print("ULTRON: Avilable commands :")
-    print("- hello")
-    print("- status")
-    print("- goodbye")
-    print("- exit")
+def help_command(commands):
+    print("ULTRON: Available commands :")
+    for cmd in commands:
+        print(f"- {cmd}")       
 def greet_user(name):
     print(f"ULTRON: Hello, {name.title()} Sir.")
 def echo(argument):

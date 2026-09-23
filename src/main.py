@@ -25,6 +25,10 @@ def handle_command(user_command):
         name = " ".join(parts[1:])
         greet_user(name)
         return False
+    if command == "help" or command == "commands":
+        help_command(COMMAND_HANDLERS.keys())
+        return False
+    
     handler = COMMAND_HANDLERS.get(command)
     if handler:
         if argument:
