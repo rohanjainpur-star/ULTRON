@@ -1,4 +1,4 @@
-from commands import greet,status,greet_user, help_command , show_time , show_date,echo
+from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye
 from constants import GREETING_COMMANDS, STATUS_COMMANDS, EXIT_COMMANDS
 from constants import GOODBYE_COMMANDS
 COMMAND_HANDLERS = {
@@ -11,6 +11,9 @@ COMMAND_HANDLERS = {
     "commands": help_command,
     "time": show_time,
     "date": show_date,
+    "goodbye": goodbye,
+    "see you later": goodbye,
+    "farewell": goodbye,
 }
 def handle_command(user_command):
     parts = user_command.split()
@@ -20,7 +23,10 @@ def handle_command(user_command):
     
     command = parts[0]
     argument = " ".join(parts[1:])
-    
+    if user_command in COMMAND_HANDLERS:
+        handler = COMMAND_HANDLERS[user_command]
+        handler()
+        return False
     if command == "hello" and len(parts) > 1:
         name = " ".join(parts[1:])
         greet_user(name)
@@ -41,9 +47,7 @@ def handle_command(user_command):
     elif command == "exit":
         print("ULTRON: Shutting down")
         return True
-    elif user_command in GOODBYE_COMMANDS:
-        print("ULTRON: Goodbye, Sir.")
-        
+    
     else:
         print("I don't understand that command")
         return False

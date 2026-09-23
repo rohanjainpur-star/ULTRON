@@ -17,3 +17,5 @@ def greet_user(name):
     print(f"ULTRON: Hello, {name.title()} Sir.")
 def echo(argument):
     print(argument)
+def goodbye():
+    print("ULTRON: Goodbye, Sir.")
