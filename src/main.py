@@ -1,10 +1,13 @@
 from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye
 from constants import GREETING_COMMANDS, STATUS_COMMANDS, EXIT_COMMANDS
 from constants import GOODBYE_COMMANDS
+COMMAND_ALIASES = {
+    "hi": "hello",
+    "hey": "hello",
+    "greetings": "hello",
+}
 COMMAND_HANDLERS = {
     "hello": greet,
-    "hey": greet,
-    "hi": greet,
     "echo": echo,
     "status": status,
     "help": help_command,
@@ -22,6 +25,7 @@ def handle_command(user_command):
         return False
     
     command = parts[0]
+    command = COMMAND_ALIASES.get(command, command)
     argument = " ".join(parts[1:])
     if user_command in COMMAND_HANDLERS:
         handler = COMMAND_HANDLERS[user_command]
