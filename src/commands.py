@@ -1,4 +1,5 @@
 from datetime import datetime
+import platform
 def show_time():
     current_time = datetime.now().strftime("%H:%M:%S")
     print(f"ULTRON: Current time is {current_time}")
@@ -19,3 +20,10 @@ def echo(argument):
     print(argument)
 def goodbye():
     print("ULTRON: Goodbye, Sir.")
+def system_info():
+    operating_system = platform.system()
+    print(f"ULTRON: Operating System: {operating_system}")
+    python_version = platform.python_version()
+    print(f"ULTRON: Python Version: {python_version}")
+    processor = platform.processor()
+    print(f"ULTRON: Processor: {processor}")

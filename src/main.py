@@ -1,4 +1,4 @@
-from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye
+from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye,system_info
 from constants import GREETING_COMMANDS, STATUS_COMMANDS, EXIT_COMMANDS
 from constants import GOODBYE_COMMANDS
 COMMAND_ALIASES = {
@@ -14,6 +14,7 @@ COMMAND_HANDLERS = {
     "commands": help_command,
     "time": show_time,
     "date": show_date,
+    "system": system_info,
     "goodbye": goodbye,
     "see you later": goodbye,
     "farewell": goodbye,
@@ -25,7 +26,6 @@ def handle_command(user_command):
         return False
     
     command = parts[0]
-    command = COMMAND_ALIASES.get(command, command)
     argument = " ".join(parts[1:])
     if user_command in COMMAND_HANDLERS:
         handler = COMMAND_HANDLERS[user_command]
