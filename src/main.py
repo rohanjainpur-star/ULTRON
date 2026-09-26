@@ -1,4 +1,4 @@
-from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye,system_info
+from commands import greet,status,greet_user, help_command , show_time , show_date,echo,goodbye,system_info,calculate
 from constants import GREETING_COMMANDS, STATUS_COMMANDS, EXIT_COMMANDS
 from constants import GOODBYE_COMMANDS
 COMMAND_ALIASES = {
@@ -9,6 +9,7 @@ COMMAND_ALIASES = {
 COMMAND_HANDLERS = {
     "hello": greet,
     "echo": echo,
+    "calculate": calculate,
     "status": status,
     "help": help_command,
     "commands": help_command,
